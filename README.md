@@ -1,52 +1,70 @@
-# CodSoft
-TASK 1
+// Task 1
+// To Create Number Guess Game
+package codsoft.com;
+import java.util.Scanner;
 
-1. Generate a random number within a specified range, such as 1 to 100.
+public class NumberGuessGame {
 
-2. Prompt the user to enter their guess for the generated number.
+	public static void main(String[] args) {
+		Scanner s =new Scanner(System.in);
+		double random =Math.random()*(100-1+1)+1;
+		int randm = (int)random;
+		int guess = 0; 
+		System.out.println("Welcome to the Number Guessing Game!");
+		System.out.println(" Enter the number of Attempts");
+		char option;
+		int attempts = s.nextInt();
+		int limit =0;
+		int score = 0;
+		
+		
+		 while(guess!= randm)
+		 {
+			 System.out.println("Enter the no:");
+			 guess = s.nextInt ();
+			 
+			 if( guess == randm)
+			 {
+				 System.out.println("Congratulation!.....Your guess is correct");
+				  score ++;
+				   random =  Math.random()*100;
+				   
+				   randm = (int)random;
+				   
+			 } 
+			 
+			 else if (guess>=randm) 
+			 {
+				 System.out.println("Too High");
+				 limit ++;
+				 
+			}else {
+				System.out.println("Too Low");
+				limit ++;
+			}
+			 if(limit >=attempts)
+			 {
+				 System.out.println(" Do you  want to play again? yes/No");
+				 option = s.next().charAt(0);
+				 
+				 if(option =='y') {
+					 
+					 attempts ++;
+					 
+				}
+				 else if (option =='n')
+				 {
+					 break;
+					 
+				 }
+				 
+			 }
+		
+		 }
+		 attempts = attempts-1;
+		 System.out.println("You Won" + " 1"+ score);
+		 System.out.println("Your Attempts"+ " "+ attempts);
+		 System.out.println("Congratulation!.....Your guess is correct");
+	}
 
-3. Compare the user's guess with the generated number and provide feedback on whether the guess
-is correct, too high, or too low.
-
-4. Repeat steps 2 and 3 until the user guesses the correct number.
-
-You can incorporate additional details as follows:
-
-5. Limit the number of attempts the user has to guess the number.
-6. Add the option for multiple rounds, allowing the user to play again.
-7. Display the user's score, which can be based on the number of attempts taken or rounds won.
-
-
-   
-
- TASK 2
-
- 
-Input: Take marks obtained (out of 100) in each subject.
-Calculate Total Marks: Sum up the marks obtained in all subjects.
-Calculate Average Percentage: Divide the total marks by the total number of subjects to get the
-average percentage.
-Grade Calculation: Assign grades based on the average percentage achieved.
-Display Results: Show the total marks, average percentage, and the corresponding grade to the user
-
-
-TASK 3
-
-
-1.Create a class to represent the ATM machine.
-
-2. Design the user interface for the ATM, including options such as withdrawing, depositing, and
-checking the balance.
-
-3. Implement methods for each option, such as withdraw(amount), deposit(amount), and
-checkBalance().
-
-4. Create a class to represent the user's bank account, which stores the account balance.
-
-5. Connect the ATM class with the user's bank account class to access and modify the account
-balance.
-
-6. Validate user input to ensure it is within acceptable limits (e.g., sufficient balance for withdrawals).
-
-7. Display appropriate messages to the user based on their chosen options and the success or failure
-of their transactions.
+}
